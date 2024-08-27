@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html events</title>
+</head>
+<body>
+    <h2>Amazing images</h2>
+    <div>
+        <ul id="images">
+            <li><img width="100px" id="oil" src= "/Events/alan-scales-1_WMZARl81c-unsplash.jpg " alt=""></li>
+            <li><img width="100px" id="googlelogo" src="/Events/googlelogo.jpg" alt=""></li>
+            <li><img width="100px" id="microsoft" src="/Events/microsfot-removebg-preview.png" alt=""></li>
+            <li><img width="100px" id="handshake" src="/Events/partnership.png" alt=""></li>
+            <li><img width="100px" id="painting" src="/Events/unplash.avif" alt=""></li>
+            <a id="gogle" href="https://www.google.com/">google</a>      
+         </ul>
+    </div>
+    <script>
+        // Notes: when there both are true then it is EventCapturing and in false it is EventBubbling, and both are not same then which is true it goes first for event
+
+        document.querySelector('#images').addEventListener('click', function(e){
+            e.stopPropagation(); // aage hone wale event ko rokne ke liye
+            console.log('images');
+        }, false) 
+
+        document.querySelector('#handshake').addEventListener('click', function(e){
+            e.stopPropagation();
+            console.log('handshake');
+        }, false)
+
+        document.querySelector('#gogle').addEventListener('click', function(e){
+            e.preventDefault(); // to prevent default behaviour
+            e.stopPropagation();
+            console.log('google clicked');
+        },false)
+
+        document.querySelector('#images').addEventListener('click', function(e){
+            // console.log(e.target.tagName);
+            if(e.target.tagName === 'IMG'){
+                // console.log(e.target.id);
+                // console.log(e.target.parentNode); 
+                let removeIt = e.target.parentNode
+                removeIt.remove();
+            }
+        }, false)
+    </script>
+</body>
+</html>

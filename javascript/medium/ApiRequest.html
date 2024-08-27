@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .classcontainer {
+            width: 300px;
+            height: 600px;
+            background-color: #f7f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: end;
+        }
+        .follower{
+            width: 200px;
+            height: 40px;
+            background-color: #dce178;
+            margin-bottom: 100px;
+        }
+        
+    </style>
+</head>
+<body  style="background-color: #212121;">
+    <div class="classcontainer">
+        <img src="" alt="" class="image">
+        <div class="follower">
+
+        </div>
+    </div>
+    <script>
+        // Note: jab bhi response milta hai to mostly it is in string form
+        const follow = document.querySelector('.follower')
+        const img = document.querySelector('.image')
+        const url = 'https://api.github.com/users/hiteshchoudhary';
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", url)
+        xhr.onreadystatechange = function(){
+        const rdyst = xhr.readyState;
+        console.log(rdyst);
+        if(rdyst === 4){
+            const data = JSON.parse(this.responseText);
+            console.log(typeof data);   // string -> object
+            // console.log(data);
+            // console.log(data.followers);
+            const avatar = data.avatar_url;
+            const follower = data.followers;
+
+            // img.src = avatar;
+            document.body.appendChild(follow.innerHTML = follower);
+            // document.body.appendChild(img.src = avatar);
+        }
+        }
+         xhr.send(); 
+    </script>
+</body>
+</html>

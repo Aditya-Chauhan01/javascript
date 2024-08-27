@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="first" style="background-color: green;
+    padding: 1rem;">
+        <h2>Hello man</h2>
+        <div id="second" style="background-color: rgb(106, 106, 210);">
+            <h2 id="head">Aditya chauhan</h2>
+            <p id="para"> I am a software Engineer</p>
+            
+        </div>
+    </div>
+</body>
+
+<script>
+        let newElement = document.createElement('span')
+        newElement.textContent = 'CEO in Startup'
+        let parent = document.querySelector('#second')
+        parent.insertAdjacentElement('beforeend', newElement)       // parent tag ko select krna padhta hai
+        // parent.insertAdjacentElement('afterend', newElement)
+        // parent.insertAdjacentElement('beforebegin', newElement)
+        // parent.insertAdjacentElement('afterbegin', newElement)
+
+        // parent.removeChild(newElement) 
+        let para = document.querySelector('#para')
+        parent.removeChild(para) 
+</script>
+</html>

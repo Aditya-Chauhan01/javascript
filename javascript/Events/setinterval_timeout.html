@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Hey! This is Aditya shahb</h2>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // setTimout
+
+    // let changetxt = function(){
+    //     document.querySelector('h2').innerHTML = "this is javascript"
+    // }
+    // let stimout = setTimeout( changetxt, 2000);
+    // document.querySelector('#stop').addEventListener('click', function(){
+    //     clearTimeout(stimout)
+    //     console.log("stopped");
+    // })
+
+    // setInterval
+    let setInt;
+    let change = () => {
+        console.log('hi', Date.now());
+    }
+    document.querySelector('#start').addEventListener('click', function(){
+         setInt = setInterval(change,1000);
+    })
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearInterval(setInt)
+    })
+
+    
+</script>
+</html>
